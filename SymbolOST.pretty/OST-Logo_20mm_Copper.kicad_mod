@@ -1,8 +1,8 @@
-(module svg2mod (layer F.Cu) (tedit 60468898)
+(module OST-Logo_20mm_cu (layer F.Cu) (tedit 60468898)
   (attr virtual)
   (descr "OST Logo")
-  (tags svg2mod)
-  (fp_text reference svg2mod (at 0 -5.8479998) (layer F.SilkS) hide
+  (tags OST-Logo)
+  (fp_text reference OST-Logo_20mm_cu (at 0 -5.8479998) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3048)))
   )
   (fp_text value G*** (at 0 5.8479998) (layer F.SilkS) hide

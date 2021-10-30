@@ -1,8 +1,8 @@
-(module svg2mod (layer F.Cu) (tedit 613A0FD8)
+(module wifi_12mm_cu (layer F.Cu) (tedit 613A0FD8)
   (attr virtual)
-  (descr "Converted using: svg2mod -i '.\\wifi_12mm_cu.svg' --format pretty -c -o output/SymbolsOST.pretty/wifi_12mm_Copper -p 1")
-  (tags svg2mod)
-  (fp_text reference svg2mod (at 0 -9.188455421932) (layer F.SilkS) hide
+  (descr "Converted using: wifi_12mm_cu -i '.\\wifi_12mm_cu.svg' --format pretty -c -o output/SymbolsOST.pretty/wifi_12mm_Copper -p 1")
+  (tags wifi)
+  (fp_text reference wifi_12mm_cu (at 0 -9.188455421932) (layer F.SilkS) hide
     (effects (font (size 1.524 1.524) (thickness 0.3048)))
   )
   (fp_text value G*** (at 0 9.188455421932) (layer F.SilkS) hide
