@@ -8,7 +8,6 @@ tag = "symbol"
 
 def get_propper_path():
     path_of_the_directory= os.getcwd()
-    print("Files and directories in a specified path:")
     directory_list = os.listdir()
     # Finding the folder
     if lib_name == os.path.basename(path_of_the_directory):
@@ -59,7 +58,7 @@ def main():
 
         with open(output_file_path,'wt') as f:
             f.write(text)
-    pass
+    
     
 
 if __name__ == "__main__":
