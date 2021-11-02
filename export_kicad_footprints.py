@@ -36,7 +36,7 @@ def get_pretty_path(path_to_lib):
         raise FileExistsError("Cant find "+lib_name+".pretty Folder")
     return pretty_folder
 
-def create_pretty_files(input_path,output_path, file_name = "", output_sizeses_mm = 0):
+def create_pretty_files(input_path,output_path, output_sizeses_mm = 0):
     """
     If given input_path is a folder then all .svg files will be converted. Else only given .svg¨
     if given output_size_mm = 0 then the original dimension will be used (scale_factor = 1)
@@ -52,6 +52,10 @@ def create_pretty_files(input_path,output_path, file_name = "", output_sizeses_m
 
     files_to_convert = []
     for path in input_path:
+        # If given input is a string, convert it.
+        if not issubclass(type(path), Path):
+            path = Path(path)
+
         if not path.exists():
             raise FileExistsError("Input path:" + path.absolute() + " dose not exists.")
         if path.is_dir():
