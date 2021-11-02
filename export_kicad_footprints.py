@@ -40,7 +40,7 @@ def get_pretty_path(path_to_lib):
     return pretty_folder
 
 
-def create_pretty_files(input_path, output_path, output_sizeses_mm=0):
+def create_pretty_files(input_path, output_base_path, output_sizeses_mm=0):
     """
     If given input_path is a folder then all .svg files will be converted. Else only given .svg¨
     if given output_size_mm = 0 then the original dimension will be used (scale_factor = 1)
@@ -71,9 +71,9 @@ def create_pretty_files(input_path, output_path, output_sizeses_mm=0):
             if subpath.suffix == ".svg":
                 files_to_convert.append(path)
 
-    if not output_path.exists():
+    if not output_base_path.exists():
         raise FileExistsError(
-            "Output path:" + output_path.absolute() + " dose not exists.")
+            "Output path:" + output_base_path.absolute() + " dose not exists.")
 
     # Here files_to_convert contains all files that should be processed.
     for svg in files_to_convert:
@@ -93,67 +93,24 @@ def create_pretty_files(input_path, output_path, output_sizeses_mm=0):
             else:
                 scale_factor = 1
                 size_str = str(orig_size)
-            co_path = output_path / \
-                (symbol_name + "_" + size_str + "mm_"+symbol_type + ".kicad_mod")
+            symbol_full_name = symbol_name + "_" + size_str + "mm_"+symbol_type
+            output_path = output_base_path / \
+                (symbol_full_name + ".kicad_mod")
             # svg2mod.exe -i $silk_screen_file_name --format pretty --factor ($size/$base_size) -c -o $save_path
             cmd_str = "svg2mod -i " + str(svg.absolute()) + " --format pretty --factor " + str(
-                scale_factor) + " -c -o " + str(co_path.absolute())
+                scale_factor) + " -c -o " + str(output_path.absolute())
             os.system(cmd_str)
+
+            # Now change tag and name inside the file
+            with open(output_path.absolute(), 'rt') as f:
+                text = f.read()
+                
+            text = text.replace("tags svg2mod", "tags " + symbol_name)
+            text = text.replace("svg2mod", symbol_full_name)
+
+            with open(output_path.absolute(), 'wt') as f:
+                f.write(text)
     pass
-
-
-def get_propper_path():
-    path_of_the_directory = os.getcwd()
-    directory_list = os.listdir()
-    # Finding the folder
-    if lib_name == os.path.basename(path_of_the_directory):
-        return path_of_the_directory
-        print("cwd")
-    else:
-        lib_folder_name = "lib"
-        lib_path = os.path.join(path_of_the_directory, lib_folder_name)
-        if not os.path.isdir(lib_path):
-            lib_path = path_of_the_directory
-        path_to_symbol_folder = ""
-
-        path_to_symbol_folder = os.path.join(lib_path, lib_name)
-        print(path_to_symbol_folder)
-        if not os.path.isdir(path_to_symbol_folder):
-            raise FileNotFoundError("Could not locate dir...")
-        return path_to_symbol_folder
-
-
-def main():
-    # path_of_the_directory= 'E:\Python for Data Science'
-    path_of_the_directory = get_propper_path()
-    # step into pretty folder
-
-    # Here the folder is found
-    for filename in os.listdir(pretty_folder):
-        # replace Copper with cu
-        # replace SilkScreen with ss
-
-        # replace svg2mod with propper name
-        # set a good tag (name up to first _ or to size marking (first number))
-        # See how to remove ss from top of cu ones.
-        file_path = os.path.join(pretty_folder, filename)
-        # os.path.join(pretty_folder,"out_"+filename)
-        output_file_path = file_path
-        # if os.path.isfile(f):
-        with open(file_path, 'rt') as f:
-            text = f.read()
-            # first replace the tag
-
-        replacement_string = filename.split(".kicad_mod")[0]
-        replacement_string = replacement_string.replace("SilkScreen", "ss")
-        replacement_string = replacement_string.replace("Copper", "cu")
-        tag = replacement_string.split("_")[0]
-
-        text = text.replace("tags svg2mod", "tags " + tag)
-        text = text.replace("svg2mod", replacement_string)
-
-        with open(output_file_path, 'wt') as f:
-            f.write(text)
 
 
 if __name__ == "__main__":
