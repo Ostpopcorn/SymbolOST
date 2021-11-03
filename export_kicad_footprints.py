@@ -104,7 +104,11 @@ def create_pretty_files(input_path, output_base_path, output_sizeses_mm=0):
             # Now change tag and name inside the file
             with open(output_path.absolute(), 'rt') as f:
                 text = f.read()
-                
+            # Remove desc line
+            descr_start = text.find("(descr")
+            descr_end   = text.find(")",descr_start)
+            
+            text = text[:(descr_start-2)] + text[(descr_end+2):]
             text = text.replace("tags svg2mod", "tags " + symbol_name)
             text = text.replace("svg2mod", symbol_full_name)
 
@@ -117,6 +121,6 @@ if __name__ == "__main__":
     path_to_lib = get_path_to_lib()
     path_to_pretty_folder = get_pretty_path(path_to_lib)
     output_dims = [5, 8, 10, 12, 14, 16, 20, 25]
-    created_files = create_pretty_files(path_to_lib, path_to_pretty_folder)
+    created_files = create_pretty_files(path_to_lib, path_to_pretty_folder,output_dims)
 
     # main()
