@@ -1,13 +1,11 @@
 from pathlib import Path
 import os
 
-lib_name = "SymbolOST"
-lib_pretty_name = lib_name+".pretty"
-
-tag = "symbol"
 
 
-def get_path_to_lib():
+
+
+def get_path_to_lib(lib_name):
     cwd = Path.cwd()
 
     if lib_name == cwd.name:
@@ -28,7 +26,8 @@ def get_path_to_lib():
     raise FileExistsError("Cant find " + lib_name + " Folder")
 
 
-def get_pretty_path(path_to_lib):
+def get_pretty_path(path_to_lib,lib_name):
+    lib_pretty_name = lib_name+".pretty"
     if isinstance(path_to_lib, str):
         path_to_lib = Path(path_to_lib)
     if not issubclass(type(path_to_lib), Path):
@@ -118,8 +117,9 @@ def create_pretty_files(input_path, output_base_path, output_sizeses_mm=0):
 
 
 if __name__ == "__main__":
-    path_to_lib = get_path_to_lib()
-    path_to_pretty_folder = get_pretty_path(path_to_lib)
+    lib_name = "SymbolOST"
+    path_to_lib = get_path_to_lib(lib_name)
+    path_to_pretty_folder = get_pretty_path(path_to_lib,lib_name)
     output_dims = [5, 8, 10, 12, 14, 16, 20, 25]
     created_files = create_pretty_files(path_to_lib, path_to_pretty_folder,output_dims)
 
