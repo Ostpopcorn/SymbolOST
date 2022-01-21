@@ -1,0 +1,33 @@
+<root>
+    <group>
+        <sizes>
+            <size>5</size>
+            <size>8</size>
+            <size>12</size>
+            <size>16</size>
+            <size>20</size>
+            <size>30</size>
+            <size>40</size>
+        </sizes>
+        <files>
+            <file>ost-bubble_50mm_Copper.svg</file>
+            <file>ost-bubble_50mm_SilkScreen.svg</file>
+            <file>admittansen_50mm_Copper.svg</file>
+            <file>admittansen_50mm_SilkScreen.svg</file>
+        </files>
+    </group>
+    <group>
+        <sizes>
+            <size>5</size>
+            <size>6</size>
+            <size>8</size>
+            <size>12</size>
+        </sizes>
+        <files>
+            <file>wifi_50mm_Copper.svg</file>
+            <file>wifi_50mm_SilkScreen.svg</file>
+            <file>led_50mm_Copper.svg</file>
+            <file>led_50mm_SilkScreen.svg</file>
+        </files>
+    </group>
+</root>

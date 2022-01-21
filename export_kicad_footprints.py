@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import xml.etree.ElementTree as ET
 
 lib_name = "SymbolOST"
 
@@ -37,10 +38,17 @@ def get_pretty_path(path_to_lib, lib_name):
         path_to_lib = Path(path_to_lib)
     if not issubclass(type(path_to_lib), Path):
         raise TypeError("Given object is not a path")
-
+    
+    # Construct the path
     pretty_folder = path_to_lib / lib_pretty_name
-    if not (pretty_folder.exists() and pretty_folder.is_dir()):
-        raise FileExistsError("Cant find "+lib_name+".pretty Folder")
+    # Check if it is exists.
+    if not pretty_folder.exists():
+        #Create folder
+        pretty_folder.mkdir()
+    else:
+        if not pretty_folder.is_dir():
+            # If the path is valid but it isnt a folder throw an error
+            raise FileExistsError(lib_name+".pretty is not a folder...")
     return pretty_folder
 
 
@@ -128,19 +136,19 @@ def find_files(input_path):
 
 
 if __name__ == "__main__":
+    # Get path to were the lib is, it might differ from cwd.
     path_to_lib = get_path_to_lib(lib_name)
     path_to_pretty_folder = get_pretty_path(path_to_lib, lib_name)
 
-    # Convert with a larger range of output dims.
-    output_dims = [5, 8, 12, 16, 20, 30, 40]
-    files = ["ost-bubble_50mm_Copper.svg", "ost-bubble_50mm_SilkScreen.svg",
-             "admittansen_50mm_Copper.svg", "admittansen_50mm_SilkScreen.svg"]
-    for file in files:
-        obj = FileAndSize(path_to_lib/file, path_to_pretty_folder, output_dims)
-        obj.convert()
+    # Configuration is stored in config.xml, both sizes and paths.
+    root_node = ET.parse(path_to_lib/'config.xml').getroot()
+    for size_group in root_node.findall('group'):
+        output_dims = []
+        # Append all output dimensions 
+        for size in size_group.findall('sizes/size'):
+            output_dims.append(int(size.text))
 
-    output_dims = [5, 6, 8, 12]
-    files = ["wifi_50mm_Copper.svg", "wifi_50mm_SilkScreen.svg","led_50mm_Copper.svg","led_50mm_SilkScreen.svg"]
-    for file in files:
-        obj = FileAndSize(path_to_lib/file, path_to_pretty_folder, output_dims)
-        obj.convert()
+        # Convert all files.
+        for file in size_group.findall('files/file'):
+            obj = FileAndSize(path_to_lib/file.text, path_to_pretty_folder, output_dims)
+            obj.convert()
