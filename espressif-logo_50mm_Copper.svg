@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 188.97638 188.97638"
+   version="1.1"
+   sodipodi:docname="espressif-logo_50mm_Copper.svg"
+   width="50mm"
+   height="50mm"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   id="svg1363"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <sodipodi:namedview
+     id="namedview859"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     units="mm"
+     inkscape:zoom="2.1396782"
+     inkscape:cx="58.65368"
+     inkscape:cy="10.5156"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:document-units="mm"
+     inkscape:lockguides="true"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs826">
+    <style
+       id="style824">.cls-1{fill:#e7352c;}.cls-2{fill:#333;}</style>
+  </defs>
+  <title
+     id="title828">espressif-logo</title>
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="F.Cu">
+    <path
+       class="cls-1"
+       d="M 62.362474,140.81987 A 13.318302,13.317053 0 1 1 49.044167,127.50282 13.318302,13.317053 0 0 1 62.362474,140.81987"
+       id="path830"
+       style="stroke-width:8.99842" />
+    <path
+       class="cls-1"
+       d="M 178.53766,126.96294 A 138.0424,138.02945 0 0 0 61.552572,9.9888288 87.558838,87.550625 0 0 0 42.205039,23.935742 V 36.802894 A 109.60603,109.59574 0 0 1 151.72108,146.21868 h 12.86835 a 92.238235,92.229586 0 0 0 13.94823,-19.25574"
+       id="path832"
+       style="stroke-width:8.99842" />
+    <path
+       class="cls-1"
+       d="M 188.97633,86.561883 A 86.568966,86.56084 0 0 0 101.95742,0.00103925 c -3.059613,0 -6.029232,0 -8.998851,0.4499004 L 90.978818,6.2096652 A 148.93101,148.91704 0 0 1 182.22719,97.359492 l 5.75926,-2.069542 c 0,-2.879361 0.53989,-5.758728 0.53989,-8.998009"
+       id="path834"
+       style="stroke-width:8.99842" />
+    <path
+       class="cls-1"
+       d="M 102.9473,188.95922 A 102.94688,102.93722 0 0 1 4.2016163e-4,86.471901 102.22697,102.21737 0 0 1 30.146576,13.678012 l 5.849255,5.488785 a 95.027883,95.018971 0 0 0 0,134.970133 95.027883,95.018971 0 0 0 134.982789,0 l 5.4893,5.48878 a 102.13698,102.1274 0 0 1 -73.52062,29.33351"
+       id="path836"
+       style="stroke-width:8.99842" />
+    <path
+       class="cls-1"
+       d="M 101.77745,152.15736 A 59.842371,59.836754 0 0 0 78.290436,98.979132 58.58253,58.577033 0 0 0 48.144282,86.741843 5.4893001,5.4887852 0 0 1 43.37489,80.983114 a 5.3093231,5.308825 0 0 1 5.849255,-4.858921 70.640992,70.634369 0 0 1 62.991965,77.202917 61.64214,61.63636 0 0 1 -2.3397,12.14731 l 15.658,4.40902 a 86.928918,86.920764 0 0 0 13.49828,-5.12887 95.747794,95.738808 0 0 0 1.70979,-18.44591 98.98738,98.978094 0 0 0 -83.959296,-97.718375 43.554447,43.550361 0 0 0 -15.747996,0 34.285629,34.282412 0 0 0 -17.007831,10.52767 33.655709,33.652552 0 0 0 15.028084,53.988045 77.930066,77.922755 0 0 0 8.458922,1.52967 v 0 a 31.585973,31.58301 0 0 1 26.276647,31.13311 31.226019,31.223089 0 0 1 -5.039355,17.00623 l 10.798627,6.92847 a 80.179779,80.172256 0 0 0 16.19793,2.6994 59.212451,59.206894 0 0 0 5.939238,-20.69542"
+       id="path838"
+       style="stroke-width:8.99842" />
+  </g>
+  <metadata
+     id="metadata1365">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>espressif-logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>

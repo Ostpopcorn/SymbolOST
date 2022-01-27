@@ -1,5 +1,5 @@
 <root>
-    <group>
+    <group> <!-- Logos with just a image -->
         <sizes>
             <size>5</size>
             <size>8</size>
@@ -14,9 +14,21 @@
             <file>ost-bubble_50mm_SilkScreen.svg</file>
             <file>admittansen_50mm_Copper.svg</file>
             <file>admittansen_50mm_SilkScreen.svg</file>
+			<file>espressif_50mm_Copper.svg</file>
         </files>
     </group>
-    <group>
+    <group> <!-- logos in landscape with text -->
+        <sizes>
+            <size>10</size>
+            <size>15</size>
+            <size>25</size>
+            <size>40</size>
+        </sizes>
+        <files>
+			<file>espressif-logo_50mm_Copper.svg</file>
+        </files>
+    </group>
+    <group><!-- Random symbol that might be nice to have -->
         <sizes>
             <size>5</size>
             <size>6</size>
