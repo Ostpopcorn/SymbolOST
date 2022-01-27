@@ -1,6 +1,14 @@
 from pathlib import Path
 import os
 import xml.etree.ElementTree as ET
+import argparse
+
+
+parser = argparse.ArgumentParser(description="Testing testing")
+parser.add_argument('-m','--match', type=str, help='only convert files starting with the given string.')
+parser.add_argument('-f','--force', action='store_true',help='force write all files, usual behaviour is to only write missing files.')
+# parser.add_argument("-q", "--quiet", action="store_true") # svg2mod dose not support this.
+
 
 lib_name = "SymbolOST"
 
@@ -61,14 +69,14 @@ class FileAndSize:
         self.input_file: Path = input_file
         if not self.input_file.exists() or not self.input_file.suffix == ".svg":
             raise FileExistsError(
-                "Input path:" + self.input_file.absolute() + " dose not exists.")
+                "Input path:" + str(self.input_file.absolute()) + " dose not exists.")
 
         self.output_path: Path = output_path
         if not self.output_path.exists():
             raise FileExistsError(
-                "Output path:" + self.output_path.absolute() + " dose not exists.")
+                "Output path:" + str(self.output_path.absolute()) + " dose not exists.")
 
-    def convert(self):
+    def convert(self,force_outout = False):
         split_name = self.input_file.stem.split("_")
         # Extract name from file name
         symbol_name = split_name[0]
@@ -91,7 +99,10 @@ class FileAndSize:
             # svg2mod.exe -i $silk_screen_file_name --format pretty --factor ($size/$base_size) -c -o $save_path
             cmd_str = "svg2mod -i " + str(self.input_file.absolute()) + " --format pretty --factor " + str(
                 scale_factor) + " -c -o " + str(output_path.absolute())
-            os.system(cmd_str)
+            if ( not output_path.exists() ) or force_outout:
+                os.system(cmd_str)
+            else:
+                print("File exists:", str(output_path.absolute()))
 
             # Now change tag and name inside the file
             with open(output_path.absolute(), 'rt') as f:
@@ -135,7 +146,15 @@ def find_files(input_path):
                 files_to_convert.append(path)
 
 
-if __name__ == "__main__":
+def main():
+    # if -f flag, force output
+    try:
+
+        args = parser.parse_args()
+    except SystemExit:
+        print("Please doubble check arguments.")
+        return -1
+        
     # Get path to were the lib is, it might differ from cwd.
     path_to_lib = get_path_to_lib(lib_name)
     path_to_pretty_folder = get_pretty_path(path_to_lib, lib_name)
@@ -150,5 +169,10 @@ if __name__ == "__main__":
 
         # Convert all files.
         for file in size_group.findall('files/file'):
-            obj = FileAndSize(path_to_lib/file.text, path_to_pretty_folder, output_dims)
-            obj.convert()
+            if args.match and file.text[0:len(args.match)] == args.match:
+                obj = FileAndSize(path_to_lib/file.text, path_to_pretty_folder, output_dims)
+                obj.convert(force_outout = args.force)
+
+if __name__ == "__main__":
+    if main():
+        print("ojojoj not good!")
