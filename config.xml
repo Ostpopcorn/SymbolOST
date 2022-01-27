@@ -41,6 +41,8 @@
             <file>wifi_50mm_SilkScreen.svg</file>
             <file>led_50mm_Copper.svg</file>
             <file>led_50mm_SilkScreen.svg</file>
+            <file>button_50mm_Copper.svg</file>
+            <file>button_50mm_SilkScreen.svg</file>
         </files>
     </group>
 </root>
