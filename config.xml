@@ -14,7 +14,7 @@
             <file>ost-bubble_50mm_SilkScreen.svg</file>
             <file>admittansen_50mm_Copper.svg</file>
             <file>admittansen_50mm_SilkScreen.svg</file>
-			<file>espressif_50mm_Copper.svg</file>
+			<file>espressif-logo_50mm_Copper.svg</file>
         </files>
     </group>
     <group> <!-- logos in landscape with text -->
@@ -25,7 +25,8 @@
             <size>40</size>
         </sizes>
         <files>
-			<file>espressif-logo_50mm_Copper.svg</file>
+            <file>espressif_200mm_Copper.svg</file>
+			
         </files>
     </group>
     <group><!-- Random symbol that might be nice to have -->
