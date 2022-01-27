@@ -169,7 +169,7 @@ def main():
 
         # Convert all files.
         for file in size_group.findall('files/file'):
-            if args.match and file.text[0:len(args.match)] == args.match:
+            if not args.match or (args.match and file.text[0:len(args.match)] == args.match):
                 obj = FileAndSize(path_to_lib/file.text, path_to_pretty_folder, output_dims)
                 obj.convert(force_outout = args.force)
 
