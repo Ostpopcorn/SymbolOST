@@ -1,4 +1,4 @@
-(module espressif_10mm_Copper (layer F.Cu) (tedit 61F25937)
+(module espressif_10mm_Copper (layer F.Cu) (tedit 61F2F4A3)
   (attr virtual)
   (tags espressif)
   (fp_text reference espressif_10mm_Copper (at 0 -4.647390189702) (layer F.SilkS) hide

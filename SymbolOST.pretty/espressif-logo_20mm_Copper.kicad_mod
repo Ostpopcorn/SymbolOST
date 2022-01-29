@@ -1,4 +1,4 @@
-(module espressif-logo_20mm_Copper (layer F.Cu) (tedit 61F24F17)
+(module espressif-logo_20mm_Copper (layer F.Cu) (tedit 61F2F4A3)
   (attr virtual)
   (tags espressif-logo)
   (fp_text reference espressif-logo_20mm_Copper (at 0 -20.842727551448) (layer F.SilkS) hide
